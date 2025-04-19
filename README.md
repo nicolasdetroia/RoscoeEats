@@ -1,90 +1,74 @@
-# RoscoeEats
+# 🍽️ TCNJ Dining AI Companion
 
-🧠 Project Overview
-This Hackathon project focuses on web scraping dynamic content from The College of New Jersey’s Eickhoff Dining Hall website, which is rendered using Angular.js.
-The primary goal is to extract structured, up-to-date meal information—including:
+This Hackathon project focuses on **web scraping dynamic content** from **The College of New Jersey’s Eickhoff Dining Hall** website, which is rendered using **Angular.js**.  
+The goal is to extract **structured, up-to-date meal information** — including:
 
-Meal times (Breakfast, Lunch, Brunch, Dinner)
+- Meal times (Breakfast, Lunch, Brunch, Dinner)  
+- Food stations  
+- Individual menu items  
+- Calorie data  
 
-Food stations
+...and make it easily accessible through a **mobile-friendly UI** for the TCNJ student community.
 
-Individual menu items
+---
 
-Calorie data
+## 🛠️ Tech Stack
 
-...and make it easily accessible through a mobile-friendly UI for the TCNJ student community.
+### 🎨 Frontend
+- **Preferred**: Flutter (cross-platform for iOS/Android)
+- **Alternative**: React Native
 
-⚙️ Tech Stack
-🎨 Frontend
-Preferred: Flutter (cross-platform for iOS/Android)
+### 🔧 Backend
+- **Preferred**: Node.js with Express + MongoDB  
+  - ✅ 90% completed on [GitHub](https://github.com/praneels2005/Hackathon)
+- **Alternative**: Firebase (for simplicity and quick iteration)
 
-Alternative: React Native
+### 🔔 Notifications
+- Firebase Cloud Messaging (FCM)
 
-🔧 Backend
-Preferred: Node.js with Express + MongoDB
+### 🧠 AI Logic
+- **Prototyping**: Python  
+- **Deployment**: JavaScript (integrated with backend)
 
-✅ 90% completed on GitHub
+### ☁️ Hosting
+- Google Cloud Platform *(robust, scalable)*  
+- Heroku *(easy to deploy, ideal for MVP)*
 
-Alternative: Firebase (for simplicity and quick iteration)
+### 🔗 APIs & Data Sources
+- TCNJ Dining Services (if available)
+- Otherwise, custom web scraper for dynamic menu data
 
-🔔 Notifications
-Firebase Cloud Messaging (FCM)
+---
 
-🧠 AI Logic
-Prototyping: Python
+## 🧩 Web Scraping Engine
 
-Deployment: JavaScript (integrated with backend)
+### 📌 Objective:
+Scrape meal data from an **Angular.js** website that dynamically renders content.
 
-☁️ Hosting
-Options:
+### 🔍 Key Challenges
 
-Google Cloud Platform
+1. **Dynamic DOM Rendering**  
+   - DOM changes frequently due to Angular.js
+   - Class names, child nodes, and hierarchy mutate on interaction
 
-Heroku
+2. **Limitations of Static Scraping**  
+   - Traditional scrapers fail due to:
+     - Frequent DOM mutations  
+     - Asynchronous content loading  
+     - Inconsistent HTML structures
 
-🔗 APIs & Data
-TCNJ Dining Services (if available)
+---
 
-Otherwise, use custom scraper for dynamic menu data
+### ✅ Implemented Solutions
 
-🛠️ Web Scraping Engine
-📌 Key Focus:
-Scraping meal data from a dynamically rendered Angular.js website using smart DOM handling strategies.
+#### **Mutation Observers**
+- Detect real-time DOM changes
+- Monitor when new content (menus) is injected
+- Ensure scraper waits before accessing the right data
 
-🧩 Key Challenges
-Dynamic DOM Rendering
-
-Angular.js causes the DOM to change frequently.
-
-Class names, child nodes, and structures mutate based on interaction.
-
-Limitations of Static Scraping
-
-Traditional scraping fails due to:
-
-Frequent DOM mutations
-
-Asynchronous content loading
-
-Inconsistent element paths
-
-🧠 Backend Scraper Logic
-✅ Implemented Solutions:
-Mutation Observers
-
-Detect real-time DOM changes.
-
-Monitor when new content (like menus) is injected.
-
-Ensures scraper waits for correct data before running.
-
-Structured Data Collection
-
+#### **Structured Data Collection**
 Data is parsed into nested JavaScript objects:
-
-js
-Copy
-Edit
+```json
 {
   "Date": {
     "MealType": {
@@ -94,32 +78,3 @@ Edit
     }
   }
 }
-⚠️ Current Limitations
-Network Reliability: Heavy requests may delay or overload server responses.
-
-DOM Inconsistency: Angular rendering introduces timing issues (e.g., content appears late).
-
-No Official API: All data must be manually scraped via client-side logic.
-
-🚀 Features
-🧠 AI Nutrition Planner
-
-Suggests weekly meal prep based on student dietary preferences and calorie needs.
-
-📥 Request Feature for Eick
-
-Allows students to suggest food items they'd like added to the dining hall.
-
-📷 Food Recognition Integration
-
-Uses CAL AI API for recognizing meals in real-time via camera.
-
-📱 Future Use Case
-A sleek mobile interface to:
-
-View real-time menus based on day and meal time
-
-Plan meals according to nutritional goals
-
-Avoid long lines by previewing food station offerings
-
